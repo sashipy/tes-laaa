@@ -35,7 +35,7 @@ def run():
             # print(eq[1])
             eq_ntype = pd.json_normalize(eq)
             # print(eq_ntype)
-            # eq_ntype.to_csv(f'usgs_{m}.csv') -- Can you use parallel COPY statements with error exceptions table
+            # eq_ntype.to_csv(f'usgs_{m}.csv') -- We can use parallel COPY statements with error exceptions table
             count = 0
             for index,row in eq_ntype.iterrows():
                 # if count < 10:  -- limiting row to see output format

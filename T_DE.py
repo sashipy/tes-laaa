@@ -83,7 +83,7 @@ with vertica_python.connect(**conn_info) as connection:
                    row['properties.mag'],
                    row['properties.place'],
                    pd.to_datetime(int(row['properties.time']), utc=True, unit='ms'),
-                   row['properties.updated'],
+                   pd.to_datetime(int(row['properties.updated']), utc=True, unit='ms'),
                    row['properties.tz'],
                    row['properties.url'],
                    row['properties.detail'],

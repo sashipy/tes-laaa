@@ -109,9 +109,9 @@ with vertica_python.connect(**conn_info) as connection:
                    row['geometry.type'],
                    row['geometry.coordinates'])
                   )
-        else:
-            # print(r.text)
-            print(m, req.status_code)
+            else:
+                # print(r.text)
+                print(m, req.status_code)
 
   connection.commit()
   connection.close()

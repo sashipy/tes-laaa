@@ -25,18 +25,18 @@ def run():
         ed = st + relativedelta(months=1) - timedelta(1)
         st_dt = st.strftime('%Y-%m-%d')
         ed_dt = ed.strftime('%Y-%m-%d')
-        #print(m, st.strftime('%Y-%m-%d'), ed.strftime('%Y-%m-%d'))
+        # print(m, st.strftime('%Y-%m-%d'), ed.strftime('%Y-%m-%d'))
         source_url = f'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime={st_dt}&endtime={ed_dt}'
         req = requests.get(source_url)
         if (req.status_code == 200):
             opt = req.json()
-            #print(m, st_dt, ed_dt, len(opt["features"]))
+            # print(m, st_dt, ed_dt, len(opt["features"]))
             eq = opt["features"]
             # print(eq[1])
             eq_ntype = pd.json_normalize(eq)
             # print(eq_ntype)
             # eq_ntype.to_csv(f'usgs_{m}.csv') -- We can use parallel COPY statements with error exceptions table
-            count = 0
+            # count = 0
             for index,row in eq_ntype.iterrows():
                 # if count < 10:  -- limiting row to see output format
                 #     count=count+1

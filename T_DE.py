@@ -14,7 +14,7 @@ conn_info = {'host': "127.0.0.1",
              'database': "testdb"}
 
 with vertica_python.connect(**conn_info) as connection:
-  cur = conn.cursor()
+  cur = connection.cursor()
 
   def run():
   #   #st_dt = '2017-01-01'
